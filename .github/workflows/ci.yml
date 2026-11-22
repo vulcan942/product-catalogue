@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            server/package-lock.json
+            client/package-lock.json
+      - run: npm run setup
+      - run: npm run typecheck
+      # Includes the client boundary checks (raw colours, Fake Store host, fetch outside lib/api.ts).
+      - run: npm run lint
+      - run: npm test

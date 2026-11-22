@@ -1,0 +1,93 @@
+@import "tailwindcss";
+@import "shadcn/tailwind.css";
+
+/*
+ * Single place for branding. Values mirror design-system/tokens.json; re-brand by
+ * editing :root only. Light is the only theme.
+ */
+:root {
+  --background: #ffffff; /* surface */
+  --foreground: #1c1c1a; /* ink */
+  --card: #ffffff; /* surface */
+  --card-foreground: #1c1c1a; /* ink */
+  --popover: #ffffff; /* surface */
+  --popover-foreground: #1c1c1a; /* ink */
+  --primary: #0f5c5c; /* accent */
+  --primary-foreground: #ffffff; /* on-accent */
+  --primary-hover: #0a4545; /* accent-hover */
+  --secondary: #ffffff; /* surface: secondary buttons are outlined on surface */
+  --secondary-foreground: #1c1c1a; /* ink */
+  --muted: #f4f4f0; /* surface-muted */
+  --muted-foreground: #5a5a55; /* ink-muted */
+  --accent: #d3e8e4; /* accent-subtle */
+  --accent-foreground: #1c1c1a; /* ink */
+  --destructive: #a12020; /* danger */
+  --destructive-bg: #fbeaea; /* danger-bg */
+  --success: #1b5e34;
+  --success-bg: #e5f2e9;
+  --border: #e2e2dc;
+  --input: #85857f; /* border-control */
+  --ring: #0f5c5c; /* focus */
+  --radius: 8px; /* radius-md */
+  --container-max: 1200px; /* container-max */
+  --card-min: 220px; /* minimum product card width */
+}
+
+@theme inline {
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: var(--font-sans);
+
+  --text-heading-lg: 28px;
+  --text-heading-lg--line-height: 36px;
+  --text-heading-lg--letter-spacing: -0.01em;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-bg: var(--destructive-bg);
+  --color-success: var(--success);
+  --color-success-bg: var(--success-bg);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: 4px;
+  --radius-md: var(--radius);
+  --radius-lg: 12px;
+  --radius-xl: 12px;
+
+  --shadow-card: 0 1px 2px rgba(28, 28, 26, 0.08);
+  --shadow-raised: 0 4px 12px rgba(28, 28, 26, 0.12);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply font-sans;
+  }
+  body {
+    @apply bg-background text-foreground text-base;
+  }
+  /* Design system: no motion anywhere. */
+  *,
+  ::before,
+  ::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
